@@ -1,0 +1,188 @@
+.listing-details-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+}
+
+@media (max-width: 768px) {
+    .listing-details-container {
+        padding: 0 24px 80px;
+    }
+}
+
+.listing-header h1 {
+    font-size: 26px;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+.listing-sub-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.listing-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.listing-reviews-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.listing-actions button {
+    background: transparent;
+    text-decoration: underline;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.listing-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    margin-top: 32px;
+}
+
+@media (max-width: 900px) {
+    .listing-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .listing-booking-sidebar {
+        grid-row: 1;
+        /* Move booking to top on mobile?? Usually bottom or updated UI */
+    }
+}
+
+.host-info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.host-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.listing-features {
+    padding: 32px 0;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.feature-item h3 {
+    font-size: 16px;
+    margin: 0 0 4px 0;
+}
+
+.feature-item p {
+    color: #717171;
+    margin: 0;
+    font-size: 14px;
+}
+
+.listing-description {
+    padding: 32px 0;
+    border-bottom: 1px solid #dddddd;
+    color: #222;
+    line-height: 24px;
+}
+
+.translation-disclaimer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.show-more-link {
+    background: transparent;
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.listing-amenities {
+    padding: 48px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.show-all-btn {
+    background: white;
+    border: 1px solid #222;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.show-all-btn:hover {
+    background: #f7f7f7;
+}
+
+.reviews-section {
+    padding-top: 48px;
+}
+
+.reviews-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.review-card {
+    margin-bottom: 24px;
+}
+
+.review-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    background: #717171;
+    border-radius: 50%;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #717171;
+}

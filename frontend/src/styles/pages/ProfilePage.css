@@ -1,0 +1,151 @@
+.profile-page {
+    min-height: 100vh;
+}
+
+.profile-content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 120px 40px 60px;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+}
+
+@media (max-width: 900px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar */
+.profile-card {
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 24px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.profile-image-section {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.profile-avatar-large {
+    width: 104px;
+    height: 104px;
+    background: #222;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.profile-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ff385c;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.profile-card h2 {
+    font-size: 32px;
+    margin: 0 0 4px 0;
+}
+
+.profile-card p {
+    margin: 0;
+    color: #222;
+    font-weight: 500;
+}
+
+.profile-verification {
+    margin-top: 32px;
+    padding: 24px;
+    border: 1px solid #dddddd;
+    border-radius: 24px;
+}
+
+.profile-verification h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.verification-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #222;
+}
+
+/* Main Content */
+.profile-header-section {
+    margin-bottom: 48px;
+}
+
+.profile-header-section h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.profile-header-section p {
+    color: #717171;
+}
+
+.profile-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 600px;
+}
+
+.profile-field {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.field-header label {
+    font-weight: 400;
+    color: #222;
+}
+
+.field-header button {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    color: #222;
+}
+
+.profile-field p {
+    color: #717171;
+    margin: 0;
+}

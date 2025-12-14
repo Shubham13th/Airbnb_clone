@@ -1,0 +1,144 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 568px;
+    /* Standard Airbnb modal width approx */
+    /* border: 1px solid #dddddd; */
+    /* border-radius: 12px; */
+    padding: 24px;
+    /* box-shadow: 0 8px 28px rgba(0,0,0,0.12); */
+    /* Removed for page feel */
+}
+
+.auth-header {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.auth-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    padding: 16px;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-input:focus {
+    border-color: #222;
+    border-width: 2px;
+    padding: 15px;
+    /* Adjust for border width change to prevent layout shift */
+}
+
+.form-helper-text {
+    font-size: 12px;
+    color: #717171;
+    margin-top: 4px;
+}
+
+.auth-btn {
+    background: #ff385c;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.auth-btn:hover {
+    background: #d90b3e;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: #717171;
+    font-size: 12px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #dddddd;
+}
+
+.auth-divider span {
+    padding: 0 16px;
+}
+
+.social-btn {
+    background: white;
+    border: 1px solid #222;
+    color: #222;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 12px;
+    transition: background 0.1s;
+}
+
+.social-btn:hover {
+    background: #f7f7f7;
+}
+
+.auth-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #222;
+}
+
+.auth-link {
+    color: #222;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-left: 4px;
+    cursor: pointer;
+}

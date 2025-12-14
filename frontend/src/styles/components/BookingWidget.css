@@ -1,0 +1,152 @@
+.booking-widget {
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    position: sticky;
+    top: 100px;
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+}
+
+.booking-price {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.booking-price-unit {
+    font-size: 16px;
+    font-weight: 400;
+    color: #222;
+}
+
+.booking-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.booking-inputs {
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.date-picker-trigger {
+    display: flex;
+    border-bottom: 1px solid #b0b0b0;
+    cursor: pointer;
+}
+
+.date-input {
+    flex: 1;
+    padding: 10px 12px;
+}
+
+.date-input label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.date-input span {
+    font-size: 14px;
+    color: #717171;
+}
+
+.guests-input {
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.guests-input label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.guests-select {
+    font-size: 14px;
+    color: #222;
+}
+
+.date-picker-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.reserve-btn {
+    width: 100%;
+    background: #ff385c;
+    /* Airbnb pink */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+}
+
+.reserve-btn:hover {
+    background: #d90b3e;
+    /* Darker pink */
+}
+
+.no-charge-text {
+    text-align: center;
+    font-size: 14px;
+    color: #717171;
+    margin-bottom: 24px;
+}
+
+.price-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #222;
+}
+
+.price-row span:first-child {
+    text-decoration: underline;
+    color: #717171;
+    cursor: pointer;
+}
+
+.price-row.total {
+    font-weight: 600;
+    font-size: 16px;
+    padding-top: 12px;
+}
+
+.booking-widget hr {
+    border: 0;
+    border-top: 1px solid #dddddd;
+    margin: 12px 0;
+}

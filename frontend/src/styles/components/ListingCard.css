@@ -1,0 +1,87 @@
+.listing-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.card-image-container {
+    position: relative;
+    aspect-ratio: 1 / 0.95;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #dddddd;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.listing-card:hover .card-image {
+    transform: scale(1.05);
+    /* Subtle zoom effect */
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: #222222;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: #222222;
+}
+
+.card-distance,
+.card-dates {
+    font-size: 14px;
+    color: #717171;
+    margin: 0;
+}
+
+.card-price {
+    margin-top: 6px;
+    font-size: 15px;
+    color: #222222;
+}
+
+.price-amount {
+    font-weight: 600;
+}
