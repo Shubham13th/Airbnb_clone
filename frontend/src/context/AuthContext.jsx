@@ -103,7 +103,11 @@ export const AuthProvider = ({ children }) => {
         loading,
         login,
         logout,
-        signup
+        signup,
+        updateUser: (userData) => {
+            setUser(userData);
+            localStorage.setItem('user', JSON.stringify(userData));
+        }
     };
 
     return (

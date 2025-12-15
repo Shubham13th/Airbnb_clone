@@ -12,7 +12,10 @@ const PropertyForm = ({ initialData = {}, onSubmit, isEditMode = false }) => {
         images: []
     });
 
+
+
     const [previewImages, setPreviewImages] = useState([]);
+    const [imageFiles, setImageFiles] = useState([]);
 
     useEffect(() => {
         if (isEditMode && initialData) {
@@ -41,21 +44,24 @@ const PropertyForm = ({ initialData = {}, onSubmit, isEditMode = false }) => {
         const files = Array.from(e.target.files);
         const newImages = files.map(file => URL.createObjectURL(file));
         setPreviewImages(prev => [...prev, ...newImages]);
-        // keeping mostly for preview, real upload logic would go here
-        setFormData(prev => ({ ...prev, images: [...prev.images, ...newImages] }));
+        setImageFiles(prev => [...prev, ...files]);
+        // We don't store blob URLs in formData.images anymore for submission, 
+        // we'll handle that via imageFiles state or handle it in submit
     };
 
     const removeImage = (index) => {
         setPreviewImages(prev => prev.filter((_, i) => i !== index));
-        setFormData(prev => ({
-            ...prev,
-            images: prev.images.filter((_, i) => i !== index)
-        }));
+        setImageFiles(prev => prev.filter((_, i) => i !== index));
+        // If we supported initializing formData.images with existing backend URLs (strings), 
+        // we'd need more complex logic to differentiate 'files' from 'urls'. 
+        // For now Assuming new uploads.
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(formData);
+        // Combine formData with imageFiles
+        // We pass the raw data up, AddPropertyPage will convert to FormData
+        onSubmit({ ...formData, imageFiles });
     };
 
     const categories = ['Rooms', 'Hotels', 'Villas', 'Mountains', 'Beaches', 'Castles', 'Camping'];
@@ -193,7 +199,7 @@ const PropertyForm = ({ initialData = {}, onSubmit, isEditMode = false }) => {
                 <button type="button" className="px-6 py-2 border border-black rounded-lg hover:bg-gray-100 font-semibold">
                     Cancel
                 </button>
-                <button type="submit" className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-rose-600 font-semibold">
+                <button type="submit" className="px-6 py-2 bg-primary text-white bg-rose-400 rounded-lg hover:bg-rose-600 font-semibold">
                     {isEditMode ? 'Save Changes' : 'Create Property'}
                 </button>
             </div>

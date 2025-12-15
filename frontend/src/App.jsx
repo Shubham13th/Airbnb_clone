@@ -12,6 +12,8 @@ import ProfilePage from './pages/ProfilePage';
 import DashboardPage from './pages/DashboardPage';
 import BookingConfirmationPage from './pages/BookingConfirmationPage';
 import BookingSuccessPage from './pages/BookingSuccessPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import { BsMapFill, BsListUl } from 'react-icons/bs';
 import { BiFilter } from 'react-icons/bi';
 import './App.css';
@@ -76,9 +78,15 @@ function App() {
     const matchesCategory = checkCategory(listing, selectedCategory);
     const location = typeof listing.location === 'string' ? listing.location : '';
     const title = typeof listing.title === 'string' ? listing.title : '';
+    const description = typeof listing.description === 'string' ? listing.description : '';
+    const category = typeof listing.category === 'string' ? listing.category : '';
 
-    const matchesSearch = location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      title.toLowerCase().includes(searchQuery.toLowerCase());
+    // Enhanced Search: Check title, location, description, and category
+    const searchLower = searchQuery.toLowerCase();
+    const matchesSearch = location.toLowerCase().includes(searchLower) ||
+      title.toLowerCase().includes(searchLower) ||
+      description.toLowerCase().includes(searchLower) ||
+      category.toLowerCase().includes(searchLower);
 
     // Check Date Range availability (Mock logic: just check if dates provided)
     // Real logic would calculate overlap
@@ -196,6 +204,8 @@ function App() {
           <Route path="/listing/:id" element={<ListingDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password/:resetToken" element={<ResetPasswordPage />} />
           <Route path="/book/confirm" element={
             <ProtectedRoute>
               <BookingConfirmationPage />

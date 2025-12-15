@@ -44,6 +44,11 @@ const createListing = async (req, res) => {
         return;
     }
 
+    if (req.user.role !== 'host') {
+        res.status(403).json({ message: 'Only hosts can create listings. Please become a host first.' });
+        return;
+    }
+
     let images = [];
     if (req.files) {
         images = req.files.map((file) => file.path);

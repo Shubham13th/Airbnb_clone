@@ -58,8 +58,8 @@ const LoginPage = () => {
                             required
                         />
 
-                        <div style={{ fontSize: '12px', fontWeight: '500', textDecoration: 'underline', cursor: 'pointer' }}>
-                            Forgot password?
+                        <div style={{ fontSize: '12px', fontWeight: '500', textAlign: 'right', marginTop: '5px' }}>
+                            <Link to="/forgot-password" style={{ color: 'black', textDecoration: 'underline' }}>Forgot password?</Link>
                         </div>
 
                         <button type="submit" className="auth-btn">
