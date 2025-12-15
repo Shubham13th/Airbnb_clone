@@ -15,9 +15,12 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
+// Allowed origins
+const allowedOrigins = ['http://localhost:5173', 'https://airbnb-clone-six-eosin.vercel.app'];
+
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173',
+        origin: allowedOrigins,
         methods: ['GET', 'POST'],
         credentials: true,
     },
@@ -41,7 +44,16 @@ io.on('connection', (socket) => {
 app.set('io', io);
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 
 // Stripe Webhook requires raw body... (Moved below if needed)
 
