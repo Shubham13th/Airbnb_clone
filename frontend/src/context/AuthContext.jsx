@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import config from '../config';
 
 const AuthContext = createContext();
 
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
+            const response = await fetch(`${config.API_BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await fetch('http://localhost:5000/api/auth/logout', {
+            await fetch(`${config.API_BASE_URL}/api/auth/logout`, {
                 method: 'POST',
             });
         } catch (error) {
@@ -70,7 +71,7 @@ export const AuthProvider = ({ children }) => {
     const signup = async (firstName, lastName, email, password) => {
         try {
             const username = `${firstName} ${lastName}`;
-            const response = await fetch('http://localhost:5000/api/auth/signup', {
+            const response = await fetch(`${config.API_BASE_URL}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

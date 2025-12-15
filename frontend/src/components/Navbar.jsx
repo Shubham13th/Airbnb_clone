@@ -5,6 +5,7 @@ import '../styles/components/Navbar.css';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import config from '../config';
 
 const Navbar = ({ setSearchQuery, searchQueryLocal: propSearchQuery, dateRange: propDateRange, guests: propGuests, setDateRange, setGuests }) => {
     const { user, logout } = useAuth();
@@ -70,7 +71,7 @@ const Navbar = ({ setSearchQuery, searchQueryLocal: propSearchQuery, dateRange: 
                         if (confirmHost) {
                             try {
                                 const token = localStorage.getItem('token');
-                                const res = await fetch('http://localhost:5000/api/user/become-host', {
+                                const res = await fetch(`${config.API_BASE_URL}/api/user/become-host`, {
                                     method: 'POST',
                                     headers: {
                                         'Authorization': `Bearer ${token}`,

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
+import config from '../config';
 
 const ChatBox = ({ recipientId, currentUserId }) => {
     const [messages, setMessages] = useState([]);
@@ -9,7 +10,7 @@ const ChatBox = ({ recipientId, currentUserId }) => {
 
     useEffect(() => {
         // Connect to Socket.io
-        const newSocket = io('http://localhost:5000');
+        const newSocket = io(config.API_BASE_URL);
         setSocket(newSocket);
 
         // Join room
@@ -33,7 +34,7 @@ const ChatBox = ({ recipientId, currentUserId }) => {
         const fetchMessages = async () => {
             const token = localStorage.getItem('accessToken');
             try {
-                const res = await fetch(`http://localhost:5000/api/messages/${recipientId}`, {
+                const res = await fetch(`${config.API_BASE_URL}/api/messages/${recipientId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -58,7 +59,7 @@ const ChatBox = ({ recipientId, currentUserId }) => {
 
         const token = localStorage.getItem('accessToken');
         try {
-            const res = await fetch('http://localhost:5000/api/messages', {
+            const res = await fetch(`${config.API_BASE_URL}/api/messages`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

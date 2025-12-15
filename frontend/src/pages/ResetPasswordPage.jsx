@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/pages/Auth.css';
+import config from '../config';
 
 const ResetPasswordPage = () => {
     const [password, setPassword] = useState('');
@@ -29,7 +30,7 @@ const ResetPasswordPage = () => {
         setIsLoading(true);
 
         try {
-            const res = await fetch(`http://localhost:5000/api/auth/resetpassword/${resetToken}`, {
+            const res = await fetch(`${config.API_BASE_URL}/api/auth/resetpassword/${resetToken}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

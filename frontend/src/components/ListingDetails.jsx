@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillStar, AiOutlineShareAlt, AiOutlineHeart } from 'react-icons/ai';
+import config from '../config';
 import BookingWidget from './BookingWidget';
 import ImageGallery from './ImageGallery';
 import ReviewCard from './ReviewCard';
@@ -14,7 +15,7 @@ const ListingDetails = () => {
     useEffect(() => {
         const fetchListing = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/listings/${id}`); // Fetch specific listing by ID
+                const res = await fetch(`${config.API_BASE_URL}/api/listings/${id}`); // Fetch specific listing by ID
                 const data = await res.json();
 
                 if (res.ok) {

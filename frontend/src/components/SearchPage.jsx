@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Map, { Marker } from 'react-map-gl';
 import debounce from 'lodash.debounce';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import config from '../config';
 
 // NOTE: You need to add your Mapbox Token here or in .env
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZXhhbXBsZSIsImEiOiJjbGZ4...'; // Replace with real token
@@ -24,7 +25,7 @@ const SearchPage = () => {
     const fetchListings = async (currentFilters) => {
         const queryParams = new URLSearchParams(currentFilters).toString();
         try {
-            const res = await fetch(`http://localhost:5000/api/listings/search?${queryParams}`);
+            const res = await fetch(`${config.API_BASE_URL}/api/listings/search?${queryParams}`);
             const data = await res.json();
             setListings(data);
         } catch (error) {

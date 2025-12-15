@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import PropertyForm from '../components/Host/PropertyForm';
 import { useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const AddPropertyPage = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const AddPropertyPage = () => {
                 });
             }
 
-            const res = await fetch('http://localhost:5000/api/listings', {
+            const res = await fetch(`${config.API_BASE_URL}/api/listings`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

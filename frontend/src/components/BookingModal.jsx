@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { differenceInDays } from 'date-fns';
+import config from '../config';
 
 const BookingModal = ({ listing, onClose }) => {
     const [startDate, setStartDate] = useState(new Date());
@@ -16,7 +17,7 @@ const BookingModal = ({ listing, onClose }) => {
     const handleHold = async () => {
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch('http://localhost:5000/api/bookings/hold', {
+            const res = await fetch(`${config.API_BASE_URL}/api/bookings/hold`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ const BookingModal = ({ listing, onClose }) => {
     const handleConfirm = async () => {
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch(`http://localhost:5000/api/bookings/confirm/${bookingData._id}`, {
+            const res = await fetch(`${config.API_BASE_URL}/api/bookings/confirm/${bookingData._id}`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

@@ -81,7 +81,7 @@ const BookingConfirmationPage = () => {
             }
 
             // 1. Create Booking Hold
-            const bookingRes = await fetch('http://localhost:5000/api/bookings/hold', {
+            const bookingRes = await fetch(`${config.API_BASE_URL}/api/bookings/hold`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const BookingConfirmationPage = () => {
             if (!bookingRes.ok) throw new Error(bookingData.message || 'Failed to create booking');
 
             // 2. Create Razorpay Order
-            const orderRes = await fetch('http://localhost:5000/api/payments/create-order', {
+            const orderRes = await fetch(`${config.API_BASE_URL}/api/payments/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ const BookingConfirmationPage = () => {
                 handler: async function (response) {
                     try {
                         // 4. Verify Payment
-                        const verifyRes = await fetch('http://localhost:5000/api/payments/verify', {
+                        const verifyRes = await fetch(`${config.API_BASE_URL}/api/payments/verify`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

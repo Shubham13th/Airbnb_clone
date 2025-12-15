@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import config from '../config';
 
 const ImageUpload = () => {
     const [title, setTitle] = useState('');
@@ -27,7 +28,7 @@ const ImageUpload = () => {
         const token = localStorage.getItem('accessToken');
 
         try {
-            const res = await fetch('http://localhost:5000/api/listings', {
+            const res = await fetch(`${config.API_BASE_URL}/api/listings`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

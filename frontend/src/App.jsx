@@ -25,6 +25,7 @@ import EditPropertyPage from './pages/EditPropertyPage';
 import Skeleton from './components/common/Skeleton';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import config from './config';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/listings');
+        const res = await fetch(`${config.API_BASE_URL}/api/listings`);
         const data = await res.json();
         if (data.listings && Array.isArray(data.listings)) {
           setListings(data.listings);
