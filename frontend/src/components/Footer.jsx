@@ -24,7 +24,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-sm">Airbnb</h4>
+                    <h4 className="font-bold text-gray-800 mb-4 text-sm">Company</h4>
                     <ul className="space-y-3 text-sm text-gray-600">
                         <li><a href="#" className="hover:underline">Newsroom</a></li>
                         <li><a href="#" className="hover:underline">New features</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="border-t border-gray-200">
                 <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
                     <div className="flex items-center gap-2 mb-4 md:mb-0">
-                        <span>© 2023 Airbnb, Inc.</span>
+                        <span>© 2023 Mytrip, Inc.</span>
                         <span className="hidden md:inline">·</span>
                         <a href="#" className="hover:underline">Privacy</a>
                         <span className="hidden md:inline">·</span>

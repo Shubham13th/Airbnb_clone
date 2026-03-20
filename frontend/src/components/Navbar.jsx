@@ -32,11 +32,9 @@ const Navbar = ({ setSearchQuery, searchQueryLocal: propSearchQuery, dateRange: 
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             {/* Logo */}
             <div className="navbar-logo" onClick={() => navigate('/')} role="button" tabIndex={0}>
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg"
-                    alt="Airbnb"
-                    className="logo-img"
-                />
+                <h1 style={{ color: '#ff385c', fontSize: '24px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <BiGlobe /> Mytrip
+                </h1>
             </div>
 
             {/* Desktop Search Bar */}

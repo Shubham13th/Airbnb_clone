@@ -85,7 +85,7 @@ const SignupPage = () => {
                         />
 
                         <div style={{ fontSize: '12px', color: '#717171' }}>
-                            By selecting Agree and continue, I agree to Airbnb's Terms of Service.
+                            By selecting Agree and continue, I agree to Mytrip's Terms of Service.
                         </div>
 
                         <button type="submit" className="auth-btn">

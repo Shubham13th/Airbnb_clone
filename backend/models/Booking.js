@@ -34,7 +34,7 @@ const bookingSchema = mongoose.Schema(
             default: 'pending',
         },
         paymentIntentId: {
-            type: String, // Kept for Stripe backward compatibility if needed
+            type: String, // Kept for payment-provider backward compatibility if needed
         },
         paymentId: {
             type: String,

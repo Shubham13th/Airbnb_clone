@@ -16,7 +16,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Allowed origins
-const allowedOrigins = ['http://localhost:5173', 'https://airbnb-clone-six-eosin.vercel.app'];
+const allowedOrigins = ['http://localhost:5173', 'https://airbnb-clone-six-eosin.vercel.app', 'https://mytrip-india.vercel.app'];
 
 const io = new Server(server, {
     cors: {
@@ -55,7 +55,8 @@ app.use(cors({
     credentials: true
 }));
 
-// Stripe Webhook requires raw body... (Moved below if needed)
+// Webhooks that verify provider signatures often require the raw body
+// so the signature can be validated reliably (provider-specific).
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

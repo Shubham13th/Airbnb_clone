@@ -36,7 +36,7 @@ const LoginPage = () => {
             <div className="auth-container" style={{ marginTop: '80px' }}>
                 <div className="auth-card">
                     <div className="auth-header">
-                        <h1>Log in to Airbnb</h1>
+                        <h1>Log in to Mytrip</h1>
                         {error && <div style={{ color: 'red', marginTop: '10px', fontSize: '14px' }}>{error}</div>}
                     </div>
 

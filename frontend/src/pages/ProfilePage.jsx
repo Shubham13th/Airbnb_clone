@@ -57,7 +57,7 @@ const ProfilePage = ({ embedded = false }) => {
                     <div className="profile-main">
                         <div className="profile-header-section">
                             <h1>Your Profile</h1>
-                            <p>The information you share will be used across Airbnb to help build trust with other Hosts and guests.</p>
+                            <p>The information you share will be used across Mytrip to help build trust with other Hosts and guests.</p>
                         </div>
 
                         <div className="profile-details-grid">

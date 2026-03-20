@@ -119,9 +119,9 @@ const BookingConfirmationPage = () => {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_RrT4ASi7j5Igah', // Razorpay Key ID
                 amount: orderData.amount,
                 currency: orderData.currency,
-                name: 'Airbnb Clone',
+                name: 'Mytrip Clone',
                 description: `Booking for ${nights} night${nights > 1 ? 's' : ''}`,
-                image: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg',
+                image: 'https://via.placeholder.com/150',
                 order_id: orderData.id,
                 handler: async function (response) {
                     try {

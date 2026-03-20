@@ -40,26 +40,33 @@ function App() {
   const [showMap, setShowMap] = useState(false);
   const [listings, setListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
 
   const handleLoadMore = () => {
-    // Placeholder for pagination
-    console.log("Load more clicked");
+    if (page < totalPages) {
+      setPage(prev => prev + 1);
+    }
   };
 
   // Fetch listings from API
   useEffect(() => {
     const fetchListings = async () => {
+      setIsLoading(true);
       try {
-        const res = await fetch(`${config.API_BASE_URL}/api/listings`);
+        const res = await fetch(`${config.API_BASE_URL}/api/listings?page=${page}&limit=12`);
         const data = await res.json();
+
         if (data.listings && Array.isArray(data.listings)) {
-          setListings(data.listings);
-        } else if (Array.isArray(data)) {
-          setListings(data);
+          if (page === 1) {
+            setListings(data.listings);
+          } else {
+            setListings(prev => [...prev, ...data.listings]);
+          }
+          setTotalPages(data.pages);
         } else {
           console.error("API did not return a listings array:", data);
-          setListings([]);
         }
       } catch (error) {
         console.error("Error fetching listings:", error);
@@ -69,7 +76,7 @@ function App() {
     };
 
     fetchListings();
-  }, []);
+  }, [page]);
 
   const checkCategory = (listing, selectedCategory) => {
     return !selectedCategory || selectedCategory === 'All' || listing.category === selectedCategory;
@@ -150,11 +157,13 @@ function App() {
                             <ListingCard key={listing._id} data={listing} />
                           ))}
                         </div>
-                        <div className="load-more-container">
-                          <button className="load-more-btn" onClick={handleLoadMore}>
-                            Load more properties
-                          </button>
-                        </div>
+                        {page < totalPages && (
+                          <div className="load-more-container">
+                            <button className="load-more-btn" onClick={handleLoadMore} disabled={isLoading}>
+                              {isLoading ? 'Loading...' : 'Load more properties'}
+                            </button>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in">

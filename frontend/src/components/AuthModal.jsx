@@ -55,7 +55,7 @@ const AuthModal = ({ isOpen, onClose }) => {
 
                 {/* Body */}
                 <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-6 text-gray-800">Welcome to Airbnb</h3>
+                    <h3 className="text-xl font-semibold mb-6 text-gray-800">Welcome to Mytrip</h3>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {!isLogin && (
